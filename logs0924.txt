@@ -1,0 +1,1561 @@
+[root@c46217v1 ~]# podman run -ti --rm -v $LOCAL_DIR:/mnt/registry quay.io/ibmmas/cli:15.6.1
+Error: host directory cannot be empty
+[root@c46217v1 ~]# export LOCAL_DIR=/root/mirrorfiles
+[root@c46217v1 ~]# podman run -ti --rm -v $LOCAL_DIR:/mnt/registry quay.io/ibmmas/cli:15.6.1
+IBM Maximo Application Suite CLI Container v15.6.1
+
+https://github.com/ibm-mas/ansible-devops
+https://github.com/ibm-mas/cli
+
+MAS Management:
+  - mas install to install a new MAS instance
+  - mas update to apply a new catalog update
+  - mas upgrade to upgrade an existing MAS install to a new release
+  - mas must-gather to perform must-gather against the target cluster
+  - mas uninstall to uninstall a MAS instance
+  - mas configtool-oidc to configure OIDC integration
+Disconnected Install Support:
+  - mas setup-registry to setup a private container registry on an OCP cluster
+  - mas teardown-registry to delete a private container registry on an OCP cluster
+  - mas mirror-images to mirror container images required by MAS to a private registry
+  - mas configure-airgap to configure a cluster to use a private registry as a mirror
+OpenShift Cluster Management:
+  - mas provision-aws to provision an OCP cluster on AWS
+  - mas provision-roks to provision an OCP cluster on IBMCloud Red Hat OpenShift Service (ROKS)
+  - mas provision-rosa to provision an OCP cluster on AWS Red Hat OpenShift Service (ROSA)
+  - mas provision-fyre to provision an OCP cluster on IBM DevIT Fyre (internal)
+AI Service (Standalone) Management:
+  - mas aiservice-install to install a new AI Service instance
+
+[ibmmas/cli:15.6.1]mascli$ mas mirror-redhat-images
+IBM Maximo Application Suite Air Gap Red Hat Image Mirror (v15.6.1)
+Powered by https://github.com/ibm-mas/ansible-devops/
+
+
+1) Configure Mirror Mode
+Working Directory > /mnt/home/registry/redhat
+Mirror Mode:
+  1. Direct
+  2. To filesystem
+  3. From filesystem
+Select Mirror Mode > 1
+
+
+2) Configure Images to Mirror
+
+2.1) Select OCP Release
+Select the release to mirror content for:
+Supported OCP Releases:
+  1) 4.18
+  2) 4.17
+  3) 4.16
+  4) 4.15
+  5) 4.14
+
+Select OCP Release > 1
+
+
+3) Configure Target Mirror
+Mirror Registry Host > c46217v1.fyre.ibm.com
+Mirror Registry Port > 5000
+Mirror Registry Prefix >
+Mirror Registry Username > admin  ^C
+
+[ibmmas/cli:15.6.1]mascli$ mas mirror-redhat-images
+IBM Maximo Application Suite Air Gap Red Hat Image Mirror (v15.6.1)
+Powered by https://github.com/ibm-mas/ansible-devops/
+
+
+1) Configure Mirror Mode
+Working Directory > /mnt/home/registry/redhat
+Mirror Mode:
+  1. Direct
+  2. To filesystem
+  3. From filesystem
+Select Mirror Mode > 1
+
+
+2) Configure Images to Mirror
+
+2.1) Select OCP Release
+Select the release to mirror content for:
+Supported OCP Releases:
+  1) 4.18
+  2) 4.17
+  3) 4.16
+  4) 4.15
+  5) 4.14
+
+Select OCP Release > 1
+
+
+3) Configure Target Mirror
+Mirror Registry Host > c46217v1.fyre.ibm.com
+Mirror Registry Port > 5000
+Mirror Registry Prefix >
+Mirror Registry Username > admin
+🔐 Mirror Registry Password >  ********
+
+
+4) Configure Red Hat Authentication
+Path to your Red Hat pull secret, available from:
+  - https://console.redhat.com/openshift/install/pull-secret
+
+Red Hat Pull Secret > /mnt/home/pull-secret.dms
+
+4.1) Red Hat OCP Release
+Mirror the Red Hat OCP release to your registry, you must select the mininum and maximum version of the release that you want mirrored.
+
+Images will be mirrored to:
+  - c46217v1.fyre.ibm.com:5000/openshift/release
+  - c46217v1.fyre.ibm.com:5000/openshift/release-images
+
+An ImageDigestMirrorSet must be configured in the cluster to make use of the mirrored release (see mas configure-airgap)
+
+Mirror Red Hat OCP release [y/N] y
+Minimum Version (x.y.z) > 4.18.23
+Maximum Version (x.y.z) > 4.18.23
+
+4.2) Red Hat OCP Operator Catalogs
+Mirror selected content from the Red Hat OCP operator catalogs to your registry, only the following content will be included from each catalog:
+
+Certified Operators:
+ - crunchy-postgres-operator (v5)
+ - gpu-operator-certified (v23.3)
+ - kubeturbo-certified (stable)
+
+Community Operators:
+ - grafana-operator (v4)
+ - opentelemetry-operator (alpha)
+ - strimzi-kafka-operator (stable)
+
+Red Hat Operators:
+ - amq-streams (stable)
+ - openshift-pipelines-operator-rh (latest)
+ - nfd (stable)
+ - aws-efs-csi-driver-operator (stable)
+ - local-storage-operator (stable)
+ - odf-operator (stable-4.18)
+
+An ImageDigestMirrorSet must be configured in the cluster to make use of the mirrored release (see mas configure-airgap)
+
+Mirror selected content from Red Hat OCP operator catalogs [y/N] n
+
+
+5) Review Settings
+
+    Configuration
+    Mirror Mode ........................... direct
+    Working Directory ..................... /mnt/home/registry/redhat
+    Authentication ........................ /mnt/home/pull-secret.dms
+    Target Registry ....................... c46217v1.fyre.ibm.com:5000
+
+    Red Hat Content
+    OpenShift Release ..................... 4.18
+    Mirror Release ........................ Yes
+    - Minimum Version ..................... 4.18.23
+    - Maximum Version ..................... 4.18.23
+    Mirror Operator Catalogs .............. No
+
+Proceed with these settings [y/N] n
+[ibmmas/cli:15.6.1]mascli$ mas mirror-redhat-images
+IBM Maximo Application Suite Air Gap Red Hat Image Mirror (v15.6.1)
+Powered by https://github.com/ibm-mas/ansible-devops/
+
+
+1) Configure Mirror Mode
+Working Directory > /mnt/home/registry/redhat
+Mirror Mode:
+  1. Direct
+  2. To filesystem
+  3. From filesystem
+Select Mirror Mode > 1
+
+
+2) Configure Images to Mirror
+
+2.1) Select OCP Release
+Select the release to mirror content for:
+Supported OCP Releases:
+  1) 4.18
+  2) 4.17
+  3) 4.16
+  4) 4.15
+  5) 4.14
+
+Select OCP Release > 1
+
+
+3) Configure Target Mirror
+Mirror Registry Host > c46217v1.fyre.ibm.com
+Mirror Registry Port > 5000
+Mirror Registry Prefix >
+Mirror Registry Username > admin
+Re-use saved registry password? [Y/n] y
+
+
+4) Configure Red Hat Authentication
+Path to your Red Hat pull secret, available from:
+  - https://console.redhat.com/openshift/install/pull-secret
+
+Red Hat Pull Secret > /mnt/home/pull-secret.dms
+
+4.1) Red Hat OCP Release
+Mirror the Red Hat OCP release to your registry, you must select the mininum and maximum version of the release that you want mirrored.
+
+Images will be mirrored to:
+  - c46217v1.fyre.ibm.com:5000/openshift/release
+  - c46217v1.fyre.ibm.com:5000/openshift/release-images
+
+An ImageDigestMirrorSet must be configured in the cluster to make use of the mirrored release (see mas configure-airgap)
+
+Mirror Red Hat OCP release [y/N] y
+Minimum Version (x.y.z) > 4.18.23
+Maximum Version (x.y.z) > 4.18.23
+
+4.2) Red Hat OCP Operator Catalogs
+Mirror selected content from the Red Hat OCP operator catalogs to your registry, only the following content will be included from each catalog:
+
+Certified Operators:
+ - crunchy-postgres-operator (v5)
+ - gpu-operator-certified (v23.3)
+ - kubeturbo-certified (stable)
+
+Community Operators:
+ - grafana-operator (v4)
+ - opentelemetry-operator (alpha)
+ - strimzi-kafka-operator (stable)
+
+Red Hat Operators:
+ - amq-streams (stable)
+ - openshift-pipelines-operator-rh (latest)
+ - nfd (stable)
+ - aws-efs-csi-driver-operator (stable)
+ - local-storage-operator (stable)
+ - odf-operator (stable-4.18)
+
+An ImageDigestMirrorSet must be configured in the cluster to make use of the mirrored release (see mas configure-airgap)
+
+Mirror selected content from Red Hat OCP operator catalogs [y/N] y
+
+
+5) Review Settings
+
+    Configuration
+    Mirror Mode ........................... direct
+    Working Directory ..................... /mnt/home/registry/redhat
+    Authentication ........................ /mnt/home/pull-secret.dms
+    Target Registry ....................... c46217v1.fyre.ibm.com:5000
+
+    Red Hat Content
+    OpenShift Release ..................... 4.18
+    Mirror Release ........................ Yes
+    - Minimum Version ..................... 4.18.23
+    - Maximum Version ..................... 4.18.23
+    Mirror Operator Catalogs .............. Yes
+
+Proceed with these settings [y/N] y
+
+
+6) Run Mirror Process
+[FAILURE] Red Hat Content: /mnt/home/registry/redhat/logs/mirror-20250924-120747-redhat.log
+
+Using /opt/app-root/src/ansible.cfg as config file
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+running playbook inside collection ibm.mas_devops
+[WARNING]: Collection community.general does not support Ansible version
+2.15.13
+[DEPRECATION WARNING]: community.general.yaml has been deprecated. The plugin
+has been superseded by the the option `result_format=yaml` in callback plugin
+ansible.builtin.default from ansible-core 2.13 onwards. This feature will be
+removed from community.general in version 12.0.0. Deprecation warnings can be
+disabled by setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Check for required environment variables] ********************************
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Fail if required properties are not provided] ***
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Test if oc is installed] *********************
+changed: [localhost] => changed=true
+  cmd: oc help
+  delta: '0:00:00.274260'
+  end: '2025-09-24 12:07:50.595813'
+  msg: ''
+  rc: 0
+  start: '2025-09-24 12:07:50.321553'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    OpenShift Client
+
+    This client helps you develop, build, deploy, and run your applications on any
+    OpenShift or Kubernetes cluster. It also includes the administrative
+    commands for managing a cluster under the 'adm' subcommand.
+
+    Basic Commands:
+      login             Log in to a server
+      new-project       Request a new project
+      new-app           Create a new application
+      status            Show an overview of the current project
+      project           Switch to another project
+      projects          Display existing projects
+      explain           Get documentation for a resource
+
+    Build and Deploy Commands:
+      rollout           Manage the rollout of a resource
+      rollback          Revert part of an application back to a previous deployment
+      new-build         Create a new build configuration
+      start-build       Start a new build
+      cancel-build      Cancel running, pending, or new builds
+      import-image      Import images from a container image registry
+      tag               Tag existing images into image streams
+
+    Application Management Commands:
+      create            Create a resource from a file or from stdin
+      apply             Apply a configuration to a resource by file name or stdin
+      get               Display one or many resources
+      describe          Show details of a specific resource or group of resources
+      edit              Edit a resource on the server
+      set               Commands that help set specific features on objects
+      label             Update the labels on a resource
+      annotate          Update the annotations on a resource
+      expose            Expose a replicated application as a service or route
+      delete            Delete resources by file names, stdin, resources and names, or by resources and label selector
+      scale             Set a new size for a deployment, replica set, or replication controller
+      autoscale         Autoscale a deployment config, deployment, replica set, stateful set, or replication controller
+      secrets           Manage secrets
+
+    Troubleshooting and Debugging Commands:
+      logs              Print the logs for a container in a pod
+      rsh               Start a shell session in a container
+      rsync             Copy files between a local file system and a pod
+      port-forward      Forward one or more local ports to a pod
+      debug             Launch a new instance of a pod for debugging
+      exec              Execute a command in a container
+      proxy             Run a proxy to the Kubernetes API server
+      attach            Attach to a running container
+      run               Run a particular image on the cluster
+      cp                Copy files and directories to and from containers
+      wait              Experimental: Wait for a specific condition on one or many resources
+      events            List events
+
+    Advanced Commands:
+      adm               Tools for managing a cluster
+      replace           Replace a resource by file name or stdin
+      patch             Update fields of a resource
+      process           Process a template into list of resources
+      extract           Extract secrets or config maps to disk
+      observe           Observe changes to resources and react to them (experimental)
+      policy            Manage authorization policy
+      auth              Inspect authorization
+      image             Useful commands for managing images
+      registry          Commands for working with the registry
+      idle              Idle scalable resources
+      api-versions      Print the supported API versions on the server, in the form of "group/version"
+      api-resources     Print the supported API resources on the server
+      cluster-info      Display cluster information
+      diff              Diff the live version against a would-be applied version
+      kustomize         Build a kustomization target from a directory or URL
+
+    Settings Commands:
+      get-token         Experimental: Get token from external OIDC issuer as credentials exec plugin
+      logout            End the current server session
+      config            Modify kubeconfig files
+      whoami            Return information about the current session
+      completion        Output shell completion code for the specified shell (bash, zsh, fish, or powershell)
+
+    Other Commands:
+      plugin            Provides utilities for interacting with plugins
+      version           Print the client and server version information
+
+    Usage:
+      oc [flags] [options]
+
+    Use "oc <command> --help" for more information about a given command.
+    Use "oc options" for a list of global command-line options (applies to all commands).
+  stdout_lines: <omitted>
+
+TASK [ibm.mas_devops.mirror_ocp : Fail if oc is not installed] *****************
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Test if oc-mirror is installed] **************
+changed: [localhost] => changed=true
+  cmd: oc mirror help
+  delta: '0:00:00.531832'
+  end: '2025-09-24 12:07:51.520423'
+  msg: ''
+  rc: 0
+  start: '2025-09-24 12:07:50.988591'
+  stderr: |-
+    W0924 12:07:51.514779     163 mirror.go:86]
+
+    ⚠️  oc-mirror v1 is deprecated (starting in 4.18 release) and will be removed in a future release - please migrate to oc-mirror --v2
+  stderr_lines: <omitted>
+  stdout: |-
+    Create and publish user-configured mirrors with a declarative configuration input. Accepts an argument defining the destination for the mirrored images using the prefix file:// for a local mirror packed into a tar archive or docker:// for images to be streamed registry to registry without being stored locally. The default docker credentials are used for authenticating to the registries. The podman location for credentials is also supported as a secondary location. When using file mirroring, the --from and --config flags control the location of the images to mirror. The --config flag accepts an imageset configuration file and the --from flag accepts the location of the imageset on disk. The --from input can be passed as a file or directory, but must contain only one image sequence. The naming convention for an imageset is mirror_ seq<sequence number>_<tar count> .tar. The location of the directory used by oc-mirror as a workspace defaults to the name oc-mirror-workspace. The location of this directory is outlined in the following: 1. Destination prefix is docker:// - The current working directory will be used. 2. Destination prefix is file:// - The destination directory specified will be used.
+
+    Usage:
+      oc-mirror <destination type>:<destination location> [flags]
+      oc-mirror [command]
+
+    Examples:
+      # Mirror to a directory
+      oc-mirror --config mirror-config.yaml file://mirror
+      # Mirror to a directory without layer and image differential operations
+      oc-mirror --config mirror-config.yaml file://mirror --ignore-history
+      # Mirror to mirror publish
+      oc-mirror --config mirror-config.yaml docker://localhost:5000
+      # Publish a previously created mirror archive
+      oc-mirror --from mirror_seq1_000000.tar docker://localhost:5000
+      # Publish to a registry and add a top-level namespace
+      oc-mirror --from mirror_seq1_000000.tar docker://localhost:5000/namespace
+      # Generate manifests for previously created mirror archive
+      oc-mirror --from mirror_seq1_000000.tar docker://localhost:5000/namespace --manifests-only
+      # Skip metadata check during imageset publishing. This example shows a two-step process.
+      # A differential imageset would have to be created with --ignore-history to be
+      # successfully published with --skip-metadata-check.
+      oc-mirror --config mirror-config.yaml file://mirror --ignore-history
+      oc-mirror --from mirror_seq2_000000.tar docker://localhost:5000/namespace --skip-metadata-check
+
+    Available Commands:
+      completion  Generate the autocompletion script for the specified shell
+      describe    Pretty print the contents of mirror metadata
+      help        Help about any command
+      init        Output initial config template
+      list        List available platform and operator content and their versions.
+      version     Output version
+
+    Flags:
+      -c, --config string                   Path to imageset configuration file
+          --continue-on-error               If an error occurs, keep going and attempt to complete operations if possible
+          --dest-skip-tls                   Disable TLS validation for destination registry
+          --dest-use-http                   Use plain HTTP for destination registry
+          --dry-run                         Print actions without mirroring images
+          --enable-operator-secure-policy   If set, verifies operator catalog signatures prior to mirroring
+          --from string                     Path to an input file (e.g. archived imageset)
+      -h, --help                            help for oc-mirror
+          --ignore-history                  Ignore past mirrors when downloading images and packing layers
+          --manifests-only                  Generate manifests and do not mirror
+          --max-nested-paths int            Number of nested paths, for destination registries that limit nested paths
+          --max-per-registry int            Number of concurrent requests allowed per registry (default 6)
+          --oci-registries-config string    Registries config file location (it works only with local oci catalogs)
+          --rebuild-catalogs                If set (defaults to true), rebuilds catalogs based on filtered declarative config, and regenerates the cache of that catalog (default true)
+          --skip-cleanup                    Skip removal of artifact directories
+          --skip-image-pin                  Do not replace image tags with digest pins in operator catalogs
+          --skip-metadata-check             Skip metadata when publishing an imageset.This is only recommended when the imageset was created --ignore-history
+          --skip-missing                    If an input image is not found, skip them. 404/NotFound errors encountered while pulling images explicitly specified in the config will not be skipped
+          --skip-pruning                    If set, will disable pruning globally
+          --skip-verification               Skip verifying the integrity of the retrieved content.This is not recommended, but may be necessary when importing images from older image registries.Only bypass verification if the registry is known to be trustworthy.
+          --source-skip-tls                 Disable TLS validation for source registry
+          --source-use-http                 Use plain HTTP for source registry
+          --v1                              Redirect the flow to oc-mirror v1 (legacy code). Please migrate to v2
+          --v2                              Redirect the flow to oc-mirror v2
+      -v, --verbose int                     Number for the log level verbosity (valid 1-9, default is 0)
+
+    Use "oc-mirror [command] --help" for more information about a command.
+  stdout_lines: <omitted>
+
+TASK [ibm.mas_devops.mirror_ocp : Fail if oc-mirror is not installed] **********
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Airgap setup configuration] ******************
+ok: [localhost] =>
+  msg:
+  - OpenShift Release ...................... 4.18
+  - OpenShift Minimum Version .............. 4.18.23
+  - OpenShift Maximum Version .............. 4.18.23
+  - Mirror Mode ............................ direct
+  - Mirror Platform ........................ True
+  - Mirror Operators ....................... True
+  - Red Hat Pull Secret .................... /mnt/home/pull-secret.dms
+  - Target Registry ........................ c46217v1.fyre.ibm.com:5000
+
+TASK [ibm.mas_devops.mirror_ocp : Combine Docker config] ***********************
+fatal: [localhost]: FAILED! => changed=true
+  censored: 'the output has been hidden due to the fact that ''no_log: true'' was specified for this result'
+
+NO MORE HOSTS LEFT *************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=8    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+[ibmmas/cli:15.6.1]mascli$ ls
+ansible-devops	backup-restore	db-scripts  functions  image-validation  mas  must-gather  site-packages  templates
+[ibmmas/cli:15.6.1]mascli$ ls /mnt/home
+registry
+[ibmmas/cli:15.6.1]mascli$ ls /mnt/registry
+core
+[ibmmas/cli:15.6.1]mascli$ ls /mnt/registry/core
+logs  manifests
+[ibmmas/cli:15.6.1]mascli$ ls /mnt/registry/
+core
+[ibmmas/cli:15.6.1]mascli$ exit
+exit
+[root@c46217v1 ~]# ls
+anaconda-ks.cfg  katello-ca-consumer-latest.noarch.rpm  openshift-client-linux-amd64-rhel8.tar.gz  README.md
+cli1561          mirrorfiles                            pull-secret.dms                            registry_creation.sh
+[root@c46217v1 ~]# ls mirrorfiles/
+core
+[root@c46217v1 ~]# export LOCAL_DIR=/root/
+[root@c46217v1 ~]# export LOCAL_DIR=/root
+[root@c46217v1 ~]# podman run -ti --rm -v $LOCAL_DIR:/mnt/registry quay.io/ibmmas/cli:15.6.1
+IBM Maximo Application Suite CLI Container v15.6.1
+
+https://github.com/ibm-mas/ansible-devops
+https://github.com/ibm-mas/cli
+
+MAS Management:
+  - mas install to install a new MAS instance
+  - mas update to apply a new catalog update
+  - mas upgrade to upgrade an existing MAS install to a new release
+  - mas must-gather to perform must-gather against the target cluster
+  - mas uninstall to uninstall a MAS instance
+  - mas configtool-oidc to configure OIDC integration
+Disconnected Install Support:
+  - mas setup-registry to setup a private container registry on an OCP cluster
+  - mas teardown-registry to delete a private container registry on an OCP cluster
+  - mas mirror-images to mirror container images required by MAS to a private registry
+  - mas configure-airgap to configure a cluster to use a private registry as a mirror
+OpenShift Cluster Management:
+  - mas provision-aws to provision an OCP cluster on AWS
+  - mas provision-roks to provision an OCP cluster on IBMCloud Red Hat OpenShift Service (ROKS)
+  - mas provision-rosa to provision an OCP cluster on AWS Red Hat OpenShift Service (ROSA)
+  - mas provision-fyre to provision an OCP cluster on IBM DevIT Fyre (internal)
+AI Service (Standalone) Management:
+  - mas aiservice-install to install a new AI Service instance
+
+[ibmmas/cli:15.6.1]mascli$ mas mirro-redhat-images
+unknown parameter
+[ibmmas/cli:15.6.1]mascli$ mas mirror-redhat-images
+IBM Maximo Application Suite Air Gap Red Hat Image Mirror (v15.6.1)
+Powered by https://github.com/ibm-mas/ansible-devops/
+
+
+1) Configure Mirror Mode
+Working Directory > /mnt/registry/mirrorfiles
+Mirror Mode:
+  1. Direct
+  2. To filesystem
+  3. From filesystem
+Select Mirror Mode > 1
+
+
+2) Configure Images to Mirror
+
+2.1) Select OCP Release
+Select the release to mirror content for:
+Supported OCP Releases:
+  1) 4.18
+  2) 4.17
+  3) 4.16
+  4) 4.15
+  5) 4.14
+
+Select OCP Release > 1
+
+
+3) Configure Target Mirror
+Mirror Registry Host > c46217v1.fyre.ibm.com
+Mirror Registry Port > 5000
+Mirror Registry Prefix >
+Mirror Registry Username > admin
+🔐 Mirror Registry Password >  ********
+
+
+4) Configure Red Hat Authentication
+Path to your Red Hat pull secret, available from:
+  - https://console.redhat.com/openshift/install/pull-secret
+
+Red Hat Pull Secret > /mnt/registry/pull-secret.dms
+
+4.1) Red Hat OCP Release
+Mirror the Red Hat OCP release to your registry, you must select the mininum and maximum version of the release that you want mirrored.
+
+Images will be mirrored to:
+  - c46217v1.fyre.ibm.com:5000/openshift/release
+  - c46217v1.fyre.ibm.com:5000/openshift/release-images
+
+An ImageDigestMirrorSet must be configured in the cluster to make use of the mirrored release (see mas configure-airgap)
+
+Mirror Red Hat OCP release [y/N] ^C
+
+[ibmmas/cli:15.6.1]mascli$ mas mirror-redhat-images
+IBM Maximo Application Suite Air Gap Red Hat Image Mirror (v15.6.1)
+Powered by https://github.com/ibm-mas/ansible-devops/
+
+
+1) Configure Mirror Mode
+Working Directory > /mnt/registry/mirrorfiles
+Mirror Mode:
+  1. Direct
+  2. To filesystem
+  3. From filesystem
+Select Mirror Mode > 1
+
+
+2) Configure Images to Mirror
+
+2.1) Select OCP Release
+Select the release to mirror content for:
+Supported OCP Releases:
+  1) 4.18
+  2) 4.17
+  3) 4.16
+  4) 4.15
+  5) 4.14
+
+Select OCP Release > 1
+
+
+3) Configure Target Mirror
+Mirror Registry Host > c46217v1.fyre.ibm.com
+Mirror Registry Port > 5000
+Mirror Registry Prefix > _v2/catalog
+Mirror Registry Username > admin
+Re-use saved registry password? [Y/n] y
+
+
+4) Configure Red Hat Authentication
+Path to your Red Hat pull secret, available from:
+  - https://console.redhat.com/openshift/install/pull-secret
+
+Red Hat Pull Secret > /mnt/registry/pull-secret.dms
+
+4.1) Red Hat OCP Release
+Mirror the Red Hat OCP release to your registry, you must select the mininum and maximum version of the release that you want mirrored.
+
+Images will be mirrored to:
+  - c46217v1.fyre.ibm.com:5000/_v2/catalog/openshift/release
+  - c46217v1.fyre.ibm.com:5000/_v2/catalog/openshift/release-images
+
+An ImageDigestMirrorSet must be configured in the cluster to make use of the mirrored release (see mas configure-airgap)
+
+Mirror Red Hat OCP release [y/N] y
+Minimum Version (x.y.z) > 4.18.23
+Maximum Version (x.y.z) > 4.18.23
+
+4.2) Red Hat OCP Operator Catalogs
+Mirror selected content from the Red Hat OCP operator catalogs to your registry, only the following content will be included from each catalog:
+
+Certified Operators:
+ - crunchy-postgres-operator (v5)
+ - gpu-operator-certified (v23.3)
+ - kubeturbo-certified (stable)
+
+Community Operators:
+ - grafana-operator (v4)
+ - opentelemetry-operator (alpha)
+ - strimzi-kafka-operator (stable)
+
+Red Hat Operators:
+ - amq-streams (stable)
+ - openshift-pipelines-operator-rh (latest)
+ - nfd (stable)
+ - aws-efs-csi-driver-operator (stable)
+ - local-storage-operator (stable)
+ - odf-operator (stable-4.18)
+
+An ImageDigestMirrorSet must be configured in the cluster to make use of the mirrored release (see mas configure-airgap)
+
+Mirror selected content from Red Hat OCP operator catalogs [y/N] y
+
+
+5) Review Settings
+
+    Configuration
+    Mirror Mode ........................... direct
+    Working Directory ..................... /mnt/registry/mirrorfiles
+    Authentication ........................ /mnt/registry/pull-secret.dms
+    Target Registry ....................... c46217v1.fyre.ibm.com:5000/_v2/catalog
+
+    Red Hat Content
+    OpenShift Release ..................... 4.18
+    Mirror Release ........................ Yes
+    - Minimum Version ..................... 4.18.23
+    - Maximum Version ..................... 4.18.23
+    Mirror Operator Catalogs .............. Yes
+
+Proceed with these settings [y/N] y
+
+
+6) Run Mirror Process
+[FAILURE] Red Hat Content: /mnt/registry/mirrorfiles/logs/mirror-20250924-121531-redhat.log
+
+Using /opt/app-root/src/ansible.cfg as config file
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+running playbook inside collection ibm.mas_devops
+[WARNING]: Collection community.general does not support Ansible version
+2.15.13
+[DEPRECATION WARNING]: community.general.yaml has been deprecated. The plugin
+has been superseded by the the option `result_format=yaml` in callback plugin
+ansible.builtin.default from ansible-core 2.13 onwards. This feature will be
+removed from community.general in version 12.0.0. Deprecation warnings can be
+disabled by setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Check for required environment variables] ********************************
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Fail if required properties are not provided] ***
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Test if oc is installed] *********************
+changed: [localhost] => changed=true
+  cmd: oc help
+  delta: '0:00:00.165313'
+  end: '2025-09-24 12:15:34.351952'
+  msg: ''
+  rc: 0
+  start: '2025-09-24 12:15:34.186639'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    OpenShift Client
+
+    This client helps you develop, build, deploy, and run your applications on any
+    OpenShift or Kubernetes cluster. It also includes the administrative
+    commands for managing a cluster under the 'adm' subcommand.
+
+    Basic Commands:
+      login             Log in to a server
+      new-project       Request a new project
+      new-app           Create a new application
+      status            Show an overview of the current project
+      project           Switch to another project
+      projects          Display existing projects
+      explain           Get documentation for a resource
+
+    Build and Deploy Commands:
+      rollout           Manage the rollout of a resource
+      rollback          Revert part of an application back to a previous deployment
+      new-build         Create a new build configuration
+      start-build       Start a new build
+      cancel-build      Cancel running, pending, or new builds
+      import-image      Import images from a container image registry
+      tag               Tag existing images into image streams
+
+    Application Management Commands:
+      create            Create a resource from a file or from stdin
+      apply             Apply a configuration to a resource by file name or stdin
+      get               Display one or many resources
+      describe          Show details of a specific resource or group of resources
+      edit              Edit a resource on the server
+      set               Commands that help set specific features on objects
+      label             Update the labels on a resource
+      annotate          Update the annotations on a resource
+      expose            Expose a replicated application as a service or route
+      delete            Delete resources by file names, stdin, resources and names, or by resources and label selector
+      scale             Set a new size for a deployment, replica set, or replication controller
+      autoscale         Autoscale a deployment config, deployment, replica set, stateful set, or replication controller
+      secrets           Manage secrets
+
+    Troubleshooting and Debugging Commands:
+      logs              Print the logs for a container in a pod
+      rsh               Start a shell session in a container
+      rsync             Copy files between a local file system and a pod
+      port-forward      Forward one or more local ports to a pod
+      debug             Launch a new instance of a pod for debugging
+      exec              Execute a command in a container
+      proxy             Run a proxy to the Kubernetes API server
+      attach            Attach to a running container
+      run               Run a particular image on the cluster
+      cp                Copy files and directories to and from containers
+      wait              Experimental: Wait for a specific condition on one or many resources
+      events            List events
+
+    Advanced Commands:
+      adm               Tools for managing a cluster
+      replace           Replace a resource by file name or stdin
+      patch             Update fields of a resource
+      process           Process a template into list of resources
+      extract           Extract secrets or config maps to disk
+      observe           Observe changes to resources and react to them (experimental)
+      policy            Manage authorization policy
+      auth              Inspect authorization
+      image             Useful commands for managing images
+      registry          Commands for working with the registry
+      idle              Idle scalable resources
+      api-versions      Print the supported API versions on the server, in the form of "group/version"
+      api-resources     Print the supported API resources on the server
+      cluster-info      Display cluster information
+      diff              Diff the live version against a would-be applied version
+      kustomize         Build a kustomization target from a directory or URL
+
+    Settings Commands:
+      get-token         Experimental: Get token from external OIDC issuer as credentials exec plugin
+      logout            End the current server session
+      config            Modify kubeconfig files
+      whoami            Return information about the current session
+      completion        Output shell completion code for the specified shell (bash, zsh, fish, or powershell)
+
+    Other Commands:
+      plugin            Provides utilities for interacting with plugins
+      version           Print the client and server version information
+
+    Usage:
+      oc [flags] [options]
+
+    Use "oc <command> --help" for more information about a given command.
+    Use "oc options" for a list of global command-line options (applies to all commands).
+  stdout_lines: <omitted>
+
+TASK [ibm.mas_devops.mirror_ocp : Fail if oc is not installed] *****************
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Test if oc-mirror is installed] **************
+changed: [localhost] => changed=true
+  cmd: oc mirror help
+  delta: '0:00:01.246238'
+  end: '2025-09-24 12:15:35.984119'
+  msg: ''
+  rc: 0
+  start: '2025-09-24 12:15:34.737881'
+  stderr: |-
+    W0924 12:15:34.977241     163 mirror.go:86]
+
+    ⚠️  oc-mirror v1 is deprecated (starting in 4.18 release) and will be removed in a future release - please migrate to oc-mirror --v2
+  stderr_lines: <omitted>
+  stdout: |-
+    Create and publish user-configured mirrors with a declarative configuration input. Accepts an argument defining the destination for the mirrored images using the prefix file:// for a local mirror packed into a tar archive or docker:// for images to be streamed registry to registry without being stored locally. The default docker credentials are used for authenticating to the registries. The podman location for credentials is also supported as a secondary location. When using file mirroring, the --from and --config flags control the location of the images to mirror. The --config flag accepts an imageset configuration file and the --from flag accepts the location of the imageset on disk. The --from input can be passed as a file or directory, but must contain only one image sequence. The naming convention for an imageset is mirror_ seq<sequence number>_<tar count> .tar. The location of the directory used by oc-mirror as a workspace defaults to the name oc-mirror-workspace. The location of this directory is outlined in the following: 1. Destination prefix is docker:// - The current working directory will be used. 2. Destination prefix is file:// - The destination directory specified will be used.
+
+    Usage:
+      oc-mirror <destination type>:<destination location> [flags]
+      oc-mirror [command]
+
+    Examples:
+      # Mirror to a directory
+      oc-mirror --config mirror-config.yaml file://mirror
+      # Mirror to a directory without layer and image differential operations
+      oc-mirror --config mirror-config.yaml file://mirror --ignore-history
+      # Mirror to mirror publish
+      oc-mirror --config mirror-config.yaml docker://localhost:5000
+      # Publish a previously created mirror archive
+      oc-mirror --from mirror_seq1_000000.tar docker://localhost:5000
+      # Publish to a registry and add a top-level namespace
+      oc-mirror --from mirror_seq1_000000.tar docker://localhost:5000/namespace
+      # Generate manifests for previously created mirror archive
+      oc-mirror --from mirror_seq1_000000.tar docker://localhost:5000/namespace --manifests-only
+      # Skip metadata check during imageset publishing. This example shows a two-step process.
+      # A differential imageset would have to be created with --ignore-history to be
+      # successfully published with --skip-metadata-check.
+      oc-mirror --config mirror-config.yaml file://mirror --ignore-history
+      oc-mirror --from mirror_seq2_000000.tar docker://localhost:5000/namespace --skip-metadata-check
+
+    Available Commands:
+      completion  Generate the autocompletion script for the specified shell
+      describe    Pretty print the contents of mirror metadata
+      help        Help about any command
+      init        Output initial config template
+      list        List available platform and operator content and their versions.
+      version     Output version
+
+    Flags:
+      -c, --config string                   Path to imageset configuration file
+          --continue-on-error               If an error occurs, keep going and attempt to complete operations if possible
+          --dest-skip-tls                   Disable TLS validation for destination registry
+          --dest-use-http                   Use plain HTTP for destination registry
+          --dry-run                         Print actions without mirroring images
+          --enable-operator-secure-policy   If set, verifies operator catalog signatures prior to mirroring
+          --from string                     Path to an input file (e.g. archived imageset)
+      -h, --help                            help for oc-mirror
+          --ignore-history                  Ignore past mirrors when downloading images and packing layers
+          --manifests-only                  Generate manifests and do not mirror
+          --max-nested-paths int            Number of nested paths, for destination registries that limit nested paths
+          --max-per-registry int            Number of concurrent requests allowed per registry (default 6)
+          --oci-registries-config string    Registries config file location (it works only with local oci catalogs)
+          --rebuild-catalogs                If set (defaults to true), rebuilds catalogs based on filtered declarative config, and regenerates the cache of that catalog (default true)
+          --skip-cleanup                    Skip removal of artifact directories
+          --skip-image-pin                  Do not replace image tags with digest pins in operator catalogs
+          --skip-metadata-check             Skip metadata when publishing an imageset.This is only recommended when the imageset was created --ignore-history
+          --skip-missing                    If an input image is not found, skip them. 404/NotFound errors encountered while pulling images explicitly specified in the config will not be skipped
+          --skip-pruning                    If set, will disable pruning globally
+          --skip-verification               Skip verifying the integrity of the retrieved content.This is not recommended, but may be necessary when importing images from older image registries.Only bypass verification if the registry is known to be trustworthy.
+          --source-skip-tls                 Disable TLS validation for source registry
+          --source-use-http                 Use plain HTTP for source registry
+          --v1                              Redirect the flow to oc-mirror v1 (legacy code). Please migrate to v2
+          --v2                              Redirect the flow to oc-mirror v2
+      -v, --verbose int                     Number for the log level verbosity (valid 1-9, default is 0)
+
+    Use "oc-mirror [command] --help" for more information about a command.
+  stdout_lines: <omitted>
+
+TASK [ibm.mas_devops.mirror_ocp : Fail if oc-mirror is not installed] **********
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Airgap setup configuration] ******************
+ok: [localhost] =>
+  msg:
+  - OpenShift Release ...................... 4.18
+  - OpenShift Minimum Version .............. 4.18.23
+  - OpenShift Maximum Version .............. 4.18.23
+  - Mirror Mode ............................ direct
+  - Mirror Platform ........................ True
+  - Mirror Operators ....................... True
+  - Red Hat Pull Secret .................... /mnt/registry/pull-secret.dms
+  - Target Registry ........................ c46217v1.fyre.ibm.com:5000
+
+TASK [ibm.mas_devops.mirror_ocp : Combine Docker config] ***********************
+changed: [localhost] => changed=true
+  censored: 'the output has been hidden due to the fact that ''no_log: true'' was specified for this result'
+
+TASK [ibm.mas_devops.mirror_ocp : Write Docker config to file] *****************
+changed: [localhost] => changed=true
+  checksum: 797f217258c335b9cedf2c9942c5e666451d8bac
+  dest: /mnt/registry/mirrorfiles/config.json
+  gid: 0
+  group: root
+  md5sum: bd60ab09903faecd1c5c4beabab75483
+  mode: '0644'
+  owner: root
+  size: 2866
+  src: /root/.ansible/tmp/ansible-tmp-1758716136.613651-202-77169300444120/source
+  state: file
+  uid: 0
+
+TASK [ibm.mas_devops.mirror_ocp : Copy Docker config] **************************
+skipping: [localhost] => changed=false
+  false_condition: (registry_public_url is not defined) or (registry_public_url is defined and registry_public_url == "")
+  skip_reason: Conditional result was False
+
+TASK [ibm.mas_devops.mirror_ocp : Run Mirroring] *******************************
+included: /opt/app-root/lib64/python3.9/site-packages/ansible_collections/ibm/mas_devops/roles/mirror_ocp/tasks/actions/direct.yml for localhost
+
+TASK [ibm.mas_devops.mirror_ocp : Fail if required properties are not provided] ***
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Generate ImageSetConfiguration] **************
+changed: [localhost] => changed=true
+  checksum: fc3398062c1652f41828b58478ed2ccba016b414
+  dest: /mnt/registry/mirrorfiles/imageset-ocp4.18.yml
+  gid: 0
+  group: root
+  md5sum: b7f202e730626fa864a35d37be15f41a
+  mode: '0664'
+  owner: root
+  size: 2919
+  src: /root/.ansible/tmp/ansible-tmp-1758716137.770399-230-270799916565097/source
+  state: file
+  uid: 0
+
+TASK [ibm.mas_devops.mirror_ocp : Create validation repository required for oc mirror command] ***
+skipping: [localhost] => changed=false
+  false_condition: registry_is_ecr == true
+  skip_reason: Conditional result was False
+
+TASK [ibm.mas_devops.mirror_ocp : 4.18 : dry mode mirror command] **************
+skipping: [localhost] => changed=false
+  false_condition: registry_is_ecr == true
+  skip_reason: Conditional result was False
+
+TASK [ibm.mas_devops.mirror_ocp : 4.18 : Debug mirror command dry mode] ********
+skipping: [localhost] =>
+  false_condition: registry_is_ecr == true
+
+TASK [ibm.mas_devops.mirror_ocp : 4.18 : Fail if dry mode mirror is not successful] ***
+skipping: [localhost] => changed=false
+  false_condition: registry_is_ecr == true
+  skip_reason: Conditional result was False
+
+TASK [ibm.mas_devops.mirror_ocp : Filter out repository names that must be created in ECR] ***
+skipping: [localhost] => changed=false
+  false_condition: registry_is_ecr == true
+  skip_reason: Conditional result was False
+
+TASK [ibm.mas_devops.mirror_ocp : Repositories that will be created in ECR] ****
+skipping: [localhost] =>
+  false_condition: registry_is_ecr == true
+
+TASK [ibm.mas_devops.mirror_ocp : Create ECR Repositories] *********************
+skipping: [localhost] => changed=false
+  false_condition: registry_is_ecr == true
+  skip_reason: Conditional result was False
+
+TASK [ibm.mas_devops.mirror_ocp : Debug Information] ***************************
+ok: [localhost] =>
+  msg:
+  - Command ...................... DOCKER_CONFIG=/mnt/registry/mirrorfiles oc mirror --dest-skip-tls --config=/mnt/registry/mirrorfiles/imageset-ocp4.18.yml docker://c46217v1.fyre.ibm.com:5000/_v2/catalog
+  - Log File ..................... /mnt/registry/mirrorfiles/logs/mirror-direct-ocp4.18.log
+
+TASK [ibm.mas_devops.mirror_ocp : Mirror Red Hat content from source registry to target registry] ***
+fatal: [localhost]: FAILED! => changed=true
+  cmd: |-
+    DOCKER_CONFIG=/mnt/registry/mirrorfiles oc mirror --dest-skip-tls --config=/mnt/registry/mirrorfiles/imageset-ocp4.18.yml docker://c46217v1.fyre.ibm.com:5000/_v2/catalog &> /mnt/registry/mirrorfiles/logs/mirror-direct-ocp4.18.log
+  delta: '0:00:00.245404'
+  end: '2025-09-24 12:15:39.409229'
+  msg: non-zero return code
+  rc: 1
+  start: '2025-09-24 12:15:39.163825'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: ''
+  stdout_lines: <omitted>
+
+NO MORE HOSTS LEFT *************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=14   changed=5    unreachable=0    failed=1    skipped=8    rescued=0    ignored=0
+
+[ibmmas/cli:15.6.1]mascli$
+
+[ibmmas/cli:15.6.1]mascli$ cat /mnt/registry/mirrorfiles/logs/mirror-direct-ocp4.18.log
+W0924 12:15:39.403112     282 mirror.go:86]
+
+⚠️  oc-mirror v1 is deprecated (starting in 4.18 release) and will be removed in a future release - please migrate to oc-mirror --v2
+
+error: "c46217v1.fyre.ibm.com:5000/_v2/catalog" is not a valid image reference: invalid reference format
+[ibmmas/cli:15.6.1]mascli$ mas mirror-redhat-images
+IBM Maximo Application Suite Air Gap Red Hat Image Mirror (v15.6.1)
+Powered by https://github.com/ibm-mas/ansible-devops/
+
+
+1) Configure Mirror Mode
+Working Directory > /mnt/registry/mirrorfiles
+Mirror Mode:
+  1. Direct
+  2. To filesystem
+  3. From filesystem
+Select Mirror Mode > 1
+
+
+2) Configure Images to Mirror
+
+2.1) Select OCP Release
+Select the release to mirror content for:
+Supported OCP Releases:
+  1) 4.18
+  2) 4.17
+  3) 4.16
+  4) 4.15
+  5) 4.14
+
+Select OCP Release > 1
+
+
+3) Configure Target Mirror
+Mirror Registry Host > c46217v1.fyre.ibm.com
+Mirror Registry Port > 5000
+Mirror Registry Prefix > v2/_catalog
+Mirror Registry Username > admin
+Re-use saved registry password? [Y/n] y
+
+
+4) Configure Red Hat Authentication
+Path to your Red Hat pull secret, available from:
+  - https://console.redhat.com/openshift/install/pull-secret
+
+Red Hat Pull Secret > /mnt/registry/pull-secret.dms
+
+4.1) Red Hat OCP Release
+Mirror the Red Hat OCP release to your registry, you must select the mininum and maximum version of the release that you want mirrored.
+
+Images will be mirrored to:
+  - c46217v1.fyre.ibm.com:5000/v2/_catalog/openshift/release
+  - c46217v1.fyre.ibm.com:5000/v2/_catalog/openshift/release-images
+
+An ImageDigestMirrorSet must be configured in the cluster to make use of the mirrored release (see mas configure-airgap)
+
+Mirror Red Hat OCP release [y/N] y
+Minimum Version (x.y.z) > 4.18.23
+Maximum Version (x.y.z) > 4.18.23
+
+4.2) Red Hat OCP Operator Catalogs
+Mirror selected content from the Red Hat OCP operator catalogs to your registry, only the following content will be included from each catalog:
+
+Certified Operators:
+ - crunchy-postgres-operator (v5)
+ - gpu-operator-certified (v23.3)
+ - kubeturbo-certified (stable)
+
+Community Operators:
+ - grafana-operator (v4)
+ - opentelemetry-operator (alpha)
+ - strimzi-kafka-operator (stable)
+
+Red Hat Operators:
+ - amq-streams (stable)
+ - openshift-pipelines-operator-rh (latest)
+ - nfd (stable)
+ - aws-efs-csi-driver-operator (stable)
+ - local-storage-operator (stable)
+ - odf-operator (stable-4.18)
+
+An ImageDigestMirrorSet must be configured in the cluster to make use of the mirrored release (see mas configure-airgap)
+
+Mirror selected content from Red Hat OCP operator catalogs [y/N] y
+
+
+5) Review Settings
+
+    Configuration
+    Mirror Mode ........................... direct
+    Working Directory ..................... /mnt/registry/mirrorfiles
+    Authentication ........................ /mnt/registry/pull-secret.dms
+    Target Registry ....................... c46217v1.fyre.ibm.com:5000/v2/_catalog
+
+    Red Hat Content
+    OpenShift Release ..................... 4.18
+    Mirror Release ........................ Yes
+    - Minimum Version ..................... 4.18.23
+    - Maximum Version ..................... 4.18.23
+    Mirror Operator Catalogs .............. Yes
+
+Proceed with these settings [y/N] y
+
+
+6) Run Mirror Process
+[FAILURE] Red Hat Content: /mnt/registry/mirrorfiles/logs/mirror-20250924-122442-redhat.log
+
+Using /opt/app-root/src/ansible.cfg as config file
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+running playbook inside collection ibm.mas_devops
+[WARNING]: Collection community.general does not support Ansible version
+2.15.13
+[DEPRECATION WARNING]: community.general.yaml has been deprecated. The plugin
+has been superseded by the the option `result_format=yaml` in callback plugin
+ansible.builtin.default from ansible-core 2.13 onwards. This feature will be
+removed from community.general in version 12.0.0. Deprecation warnings can be
+disabled by setting deprecation_warnings=False in ansible.cfg.
+
+PLAY [localhost] ***************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Check for required environment variables] ********************************
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Fail if required properties are not provided] ***
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Test if oc is installed] *********************
+changed: [localhost] => changed=true
+  cmd: oc help
+  delta: '0:00:00.197711'
+  end: '2025-09-24 12:24:45.874879'
+  msg: ''
+  rc: 0
+  start: '2025-09-24 12:24:45.677168'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    OpenShift Client
+
+    This client helps you develop, build, deploy, and run your applications on any
+    OpenShift or Kubernetes cluster. It also includes the administrative
+    commands for managing a cluster under the 'adm' subcommand.
+
+    Basic Commands:
+      login             Log in to a server
+      new-project       Request a new project
+      new-app           Create a new application
+      status            Show an overview of the current project
+      project           Switch to another project
+      projects          Display existing projects
+      explain           Get documentation for a resource
+
+    Build and Deploy Commands:
+      rollout           Manage the rollout of a resource
+      rollback          Revert part of an application back to a previous deployment
+      new-build         Create a new build configuration
+      start-build       Start a new build
+      cancel-build      Cancel running, pending, or new builds
+      import-image      Import images from a container image registry
+      tag               Tag existing images into image streams
+
+    Application Management Commands:
+      create            Create a resource from a file or from stdin
+      apply             Apply a configuration to a resource by file name or stdin
+      get               Display one or many resources
+      describe          Show details of a specific resource or group of resources
+      edit              Edit a resource on the server
+      set               Commands that help set specific features on objects
+      label             Update the labels on a resource
+      annotate          Update the annotations on a resource
+      expose            Expose a replicated application as a service or route
+      delete            Delete resources by file names, stdin, resources and names, or by resources and label selector
+      scale             Set a new size for a deployment, replica set, or replication controller
+      autoscale         Autoscale a deployment config, deployment, replica set, stateful set, or replication controller
+      secrets           Manage secrets
+
+    Troubleshooting and Debugging Commands:
+      logs              Print the logs for a container in a pod
+      rsh               Start a shell session in a container
+      rsync             Copy files between a local file system and a pod
+      port-forward      Forward one or more local ports to a pod
+      debug             Launch a new instance of a pod for debugging
+      exec              Execute a command in a container
+      proxy             Run a proxy to the Kubernetes API server
+      attach            Attach to a running container
+      run               Run a particular image on the cluster
+      cp                Copy files and directories to and from containers
+      wait              Experimental: Wait for a specific condition on one or many resources
+      events            List events
+
+    Advanced Commands:
+      adm               Tools for managing a cluster
+      replace           Replace a resource by file name or stdin
+      patch             Update fields of a resource
+      process           Process a template into list of resources
+      extract           Extract secrets or config maps to disk
+      observe           Observe changes to resources and react to them (experimental)
+      policy            Manage authorization policy
+      auth              Inspect authorization
+      image             Useful commands for managing images
+      registry          Commands for working with the registry
+      idle              Idle scalable resources
+      api-versions      Print the supported API versions on the server, in the form of "group/version"
+      api-resources     Print the supported API resources on the server
+      cluster-info      Display cluster information
+      diff              Diff the live version against a would-be applied version
+      kustomize         Build a kustomization target from a directory or URL
+
+    Settings Commands:
+      get-token         Experimental: Get token from external OIDC issuer as credentials exec plugin
+      logout            End the current server session
+      config            Modify kubeconfig files
+      whoami            Return information about the current session
+      completion        Output shell completion code for the specified shell (bash, zsh, fish, or powershell)
+
+    Other Commands:
+      plugin            Provides utilities for interacting with plugins
+      version           Print the client and server version information
+
+    Usage:
+      oc [flags] [options]
+
+    Use "oc <command> --help" for more information about a given command.
+    Use "oc options" for a list of global command-line options (applies to all commands).
+  stdout_lines: <omitted>
+
+TASK [ibm.mas_devops.mirror_ocp : Fail if oc is not installed] *****************
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Test if oc-mirror is installed] **************
+changed: [localhost] => changed=true
+  cmd: oc mirror help
+  delta: '0:00:00.244642'
+  end: '2025-09-24 12:24:46.514346'
+  msg: ''
+  rc: 0
+  start: '2025-09-24 12:24:46.269704'
+  stderr: |-
+    W0924 12:24:46.508315     409 mirror.go:86]
+
+    ⚠️  oc-mirror v1 is deprecated (starting in 4.18 release) and will be removed in a future release - please migrate to oc-mirror --v2
+  stderr_lines: <omitted>
+  stdout: |-
+    Create and publish user-configured mirrors with a declarative configuration input. Accepts an argument defining the destination for the mirrored images using the prefix file:// for a local mirror packed into a tar archive or docker:// for images to be streamed registry to registry without being stored locally. The default docker credentials are used for authenticating to the registries. The podman location for credentials is also supported as a secondary location. When using file mirroring, the --from and --config flags control the location of the images to mirror. The --config flag accepts an imageset configuration file and the --from flag accepts the location of the imageset on disk. The --from input can be passed as a file or directory, but must contain only one image sequence. The naming convention for an imageset is mirror_ seq<sequence number>_<tar count> .tar. The location of the directory used by oc-mirror as a workspace defaults to the name oc-mirror-workspace. The location of this directory is outlined in the following: 1. Destination prefix is docker:// - The current working directory will be used. 2. Destination prefix is file:// - The destination directory specified will be used.
+
+    Usage:
+      oc-mirror <destination type>:<destination location> [flags]
+      oc-mirror [command]
+
+    Examples:
+      # Mirror to a directory
+      oc-mirror --config mirror-config.yaml file://mirror
+      # Mirror to a directory without layer and image differential operations
+      oc-mirror --config mirror-config.yaml file://mirror --ignore-history
+      # Mirror to mirror publish
+      oc-mirror --config mirror-config.yaml docker://localhost:5000
+      # Publish a previously created mirror archive
+      oc-mirror --from mirror_seq1_000000.tar docker://localhost:5000
+      # Publish to a registry and add a top-level namespace
+      oc-mirror --from mirror_seq1_000000.tar docker://localhost:5000/namespace
+      # Generate manifests for previously created mirror archive
+      oc-mirror --from mirror_seq1_000000.tar docker://localhost:5000/namespace --manifests-only
+      # Skip metadata check during imageset publishing. This example shows a two-step process.
+      # A differential imageset would have to be created with --ignore-history to be
+      # successfully published with --skip-metadata-check.
+      oc-mirror --config mirror-config.yaml file://mirror --ignore-history
+      oc-mirror --from mirror_seq2_000000.tar docker://localhost:5000/namespace --skip-metadata-check
+
+    Available Commands:
+      completion  Generate the autocompletion script for the specified shell
+      describe    Pretty print the contents of mirror metadata
+      help        Help about any command
+      init        Output initial config template
+      list        List available platform and operator content and their versions.
+      version     Output version
+
+    Flags:
+      -c, --config string                   Path to imageset configuration file
+          --continue-on-error               If an error occurs, keep going and attempt to complete operations if possible
+          --dest-skip-tls                   Disable TLS validation for destination registry
+          --dest-use-http                   Use plain HTTP for destination registry
+          --dry-run                         Print actions without mirroring images
+          --enable-operator-secure-policy   If set, verifies operator catalog signatures prior to mirroring
+          --from string                     Path to an input file (e.g. archived imageset)
+      -h, --help                            help for oc-mirror
+          --ignore-history                  Ignore past mirrors when downloading images and packing layers
+          --manifests-only                  Generate manifests and do not mirror
+          --max-nested-paths int            Number of nested paths, for destination registries that limit nested paths
+          --max-per-registry int            Number of concurrent requests allowed per registry (default 6)
+          --oci-registries-config string    Registries config file location (it works only with local oci catalogs)
+          --rebuild-catalogs                If set (defaults to true), rebuilds catalogs based on filtered declarative config, and regenerates the cache of that catalog (default true)
+          --skip-cleanup                    Skip removal of artifact directories
+          --skip-image-pin                  Do not replace image tags with digest pins in operator catalogs
+          --skip-metadata-check             Skip metadata when publishing an imageset.This is only recommended when the imageset was created --ignore-history
+          --skip-missing                    If an input image is not found, skip them. 404/NotFound errors encountered while pulling images explicitly specified in the config will not be skipped
+          --skip-pruning                    If set, will disable pruning globally
+          --skip-verification               Skip verifying the integrity of the retrieved content.This is not recommended, but may be necessary when importing images from older image registries.Only bypass verification if the registry is known to be trustworthy.
+          --source-skip-tls                 Disable TLS validation for source registry
+          --source-use-http                 Use plain HTTP for source registry
+          --v1                              Redirect the flow to oc-mirror v1 (legacy code). Please migrate to v2
+          --v2                              Redirect the flow to oc-mirror v2
+      -v, --verbose int                     Number for the log level verbosity (valid 1-9, default is 0)
+
+    Use "oc-mirror [command] --help" for more information about a command.
+  stdout_lines: <omitted>
+
+TASK [ibm.mas_devops.mirror_ocp : Fail if oc-mirror is not installed] **********
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Airgap setup configuration] ******************
+ok: [localhost] =>
+  msg:
+  - OpenShift Release ...................... 4.18
+  - OpenShift Minimum Version .............. 4.18.23
+  - OpenShift Maximum Version .............. 4.18.23
+  - Mirror Mode ............................ direct
+  - Mirror Platform ........................ True
+  - Mirror Operators ....................... True
+  - Red Hat Pull Secret .................... /mnt/registry/pull-secret.dms
+  - Target Registry ........................ c46217v1.fyre.ibm.com:5000
+
+TASK [ibm.mas_devops.mirror_ocp : Combine Docker config] ***********************
+changed: [localhost] => changed=true
+  censored: 'the output has been hidden due to the fact that ''no_log: true'' was specified for this result'
+
+TASK [ibm.mas_devops.mirror_ocp : Write Docker config to file] *****************
+ok: [localhost] => changed=false
+  checksum: 797f217258c335b9cedf2c9942c5e666451d8bac
+  dest: /mnt/registry/mirrorfiles/config.json
+  gid: 0
+  group: root
+  mode: '0644'
+  owner: root
+  path: /mnt/registry/mirrorfiles/config.json
+  size: 2866
+  state: file
+  uid: 0
+
+TASK [ibm.mas_devops.mirror_ocp : Copy Docker config] **************************
+skipping: [localhost] => changed=false
+  false_condition: (registry_public_url is not defined) or (registry_public_url is defined and registry_public_url == "")
+  skip_reason: Conditional result was False
+
+TASK [ibm.mas_devops.mirror_ocp : Run Mirroring] *******************************
+included: /opt/app-root/lib64/python3.9/site-packages/ansible_collections/ibm/mas_devops/roles/mirror_ocp/tasks/actions/direct.yml for localhost
+
+TASK [ibm.mas_devops.mirror_ocp : Fail if required properties are not provided] ***
+ok: [localhost] => changed=false
+  msg: All assertions passed
+
+TASK [ibm.mas_devops.mirror_ocp : Generate ImageSetConfiguration] **************
+ok: [localhost] => changed=false
+  checksum: fc3398062c1652f41828b58478ed2ccba016b414
+  dest: /mnt/registry/mirrorfiles/imageset-ocp4.18.yml
+  gid: 0
+  group: root
+  mode: '0664'
+  owner: root
+  path: /mnt/registry/mirrorfiles/imageset-ocp4.18.yml
+  size: 2919
+  state: file
+  uid: 0
+
+TASK [ibm.mas_devops.mirror_ocp : Create validation repository required for oc mirror command] ***
+skipping: [localhost] => changed=false
+  false_condition: registry_is_ecr == true
+  skip_reason: Conditional result was False
+
+TASK [ibm.mas_devops.mirror_ocp : 4.18 : dry mode mirror command] **************
+skipping: [localhost] => changed=false
+  false_condition: registry_is_ecr == true
+  skip_reason: Conditional result was False
+
+TASK [ibm.mas_devops.mirror_ocp : 4.18 : Debug mirror command dry mode] ********
+skipping: [localhost] =>
+  false_condition: registry_is_ecr == true
+
+TASK [ibm.mas_devops.mirror_ocp : 4.18 : Fail if dry mode mirror is not successful] ***
+skipping: [localhost] => changed=false
+  false_condition: registry_is_ecr == true
+  skip_reason: Conditional result was False
+
+TASK [ibm.mas_devops.mirror_ocp : Filter out repository names that must be created in ECR] ***
+skipping: [localhost] => changed=false
+  false_condition: registry_is_ecr == true
+  skip_reason: Conditional result was False
+
+TASK [ibm.mas_devops.mirror_ocp : Repositories that will be created in ECR] ****
+skipping: [localhost] =>
+  false_condition: registry_is_ecr == true
+
+TASK [ibm.mas_devops.mirror_ocp : Create ECR Repositories] *********************
+skipping: [localhost] => changed=false
+  false_condition: registry_is_ecr == true
+  skip_reason: Conditional result was False
+
+TASK [ibm.mas_devops.mirror_ocp : Debug Information] ***************************
+ok: [localhost] =>
+  msg:
+  - Command ...................... DOCKER_CONFIG=/mnt/registry/mirrorfiles oc mirror --dest-skip-tls --config=/mnt/registry/mirrorfiles/imageset-ocp4.18.yml docker://c46217v1.fyre.ibm.com:5000/v2/_catalog
+  - Log File ..................... /mnt/registry/mirrorfiles/logs/mirror-direct-ocp4.18.log
+
+TASK [ibm.mas_devops.mirror_ocp : Mirror Red Hat content from source registry to target registry] ***
+fatal: [localhost]: FAILED! => changed=true
+  cmd: |-
+    DOCKER_CONFIG=/mnt/registry/mirrorfiles oc mirror --dest-skip-tls --config=/mnt/registry/mirrorfiles/imageset-ocp4.18.yml docker://c46217v1.fyre.ibm.com:5000/v2/_catalog &> /mnt/registry/mirrorfiles/logs/mirror-direct-ocp4.18.log
+  delta: '0:00:00.231349'
+  end: '2025-09-24 12:24:50.154399'
+  msg: non-zero return code
+  rc: 1
+  start: '2025-09-24 12:24:49.923050'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: ''
+  stdout_lines: <omitted>
+
+NO MORE HOSTS LEFT *************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=14   changed=3    unreachable=0    failed=1    skipped=8    rescued=0    ignored=0
+
+[ibmmas/cli:15.6.1]mascli$ cat /mnt/registry/mirrorfiles/logs/mirror-direct-ocp4.18.log
+W0924 12:24:50.149655     526 mirror.go:86]
+
+⚠️  oc-mirror v1 is deprecated (starting in 4.18 release) and will be removed in a future release - please migrate to oc-mirror --v2
+
+error: "c46217v1.fyre.ibm.com:5000/v2/_catalog" is not a valid image reference: invalid reference format
+[ibmmas/cli:15.6.1]mascli$ mas mirror-redhat-images
+IBM Maximo Application Suite Air Gap Red Hat Image Mirror (v15.6.1)
+Powered by https://github.com/ibm-mas/ansible-devops/
+
+
+1) Configure Mirror Mode
+Working Directory > /mnt/registry/mirrorfiles
+Mirror Mode:
+  1. Direct
+  2. To filesystem
+  3. From filesystem
+Select Mirror Mode > 1
+
+
+2) Configure Images to Mirror
+
+2.1) Select OCP Release
+Select the release to mirror content for:
+Supported OCP Releases:
+  1) 4.18
+  2) 4.17
+  3) 4.16
+  4) 4.15
+  5) 4.14
+
+Select OCP Release > 1
+
+
+3) Configure Target Mirror
+Mirror Registry Host > c46217v1.fyre.ibm.com
+Mirror Registry Port > 5000
+Mirror Registry Prefix >
+Mirror Registry Username > admin
+Re-use saved registry password? [Y/n]
+
+
+4) Configure Red Hat Authentication
+Path to your Red Hat pull secret, available from:
+  - https://console.redhat.com/openshift/install/pull-secret
+
+Red Hat Pull Secret > /mnt/registry/pull-secret.dms
+
+4.1) Red Hat OCP Release
+Mirror the Red Hat OCP release to your registry, you must select the mininum and maximum version of the release that you want mirrored.
+
+Images will be mirrored to:
+  - c46217v1.fyre.ibm.com:5000/openshift/release
+  - c46217v1.fyre.ibm.com:5000/openshift/release-images
+
+An ImageDigestMirrorSet must be configured in the cluster to make use of the mirrored release (see mas configure-airgap)
+
+Mirror Red Hat OCP release [y/N] y
+Minimum Version (x.y.z) > 4.18.23
+Maximum Version (x.y.z) > 4.18.23
+
+4.2) Red Hat OCP Operator Catalogs
+Mirror selected content from the Red Hat OCP operator catalogs to your registry, only the following content will be included from each catalog:
+
+Certified Operators:
+ - crunchy-postgres-operator (v5)
+ - gpu-operator-certified (v23.3)
+ - kubeturbo-certified (stable)
+
+Community Operators:
+ - grafana-operator (v4)
+ - opentelemetry-operator (alpha)
+ - strimzi-kafka-operator (stable)
+
+Red Hat Operators:
+ - amq-streams (stable)
+ - openshift-pipelines-operator-rh (latest)
+ - nfd (stable)
+ - aws-efs-csi-driver-operator (stable)
+ - local-storage-operator (stable)
+ - odf-operator (stable-4.18)
+
+An ImageDigestMirrorSet must be configured in the cluster to make use of the mirrored release (see mas configure-airgap)
+
+Mirror selected content from Red Hat OCP operator catalogs [y/N] y
+
+
+5) Review Settings
+
+    Configuration
+    Mirror Mode ........................... direct
+    Working Directory ..................... /mnt/registry/mirrorfiles
+    Authentication ........................ /mnt/registry/pull-secret.dms
+    Target Registry ....................... c46217v1.fyre.ibm.com:5000
+
+    Red Hat Content
+    OpenShift Release ..................... 4.18
+    Mirror Release ........................ Yes
+    - Minimum Version ..................... 4.18.23
+    - Maximum Version ..................... 4.18.23
+    Mirror Operator Catalogs .............. Yes
+
+Proceed with these settings [y/N] y
+
+
+6) Run Mirror Process
+Mirroring Red Hat Content ... /mnt/registry/mirrorfiles/logs/mirror-20250924-122614-redhat.log

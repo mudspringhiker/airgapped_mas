@@ -1,4 +1,4 @@
-# Setting up and deploying the image registry
+# Setting up the image registry
 
 - Provisioned a RHEL 8.10 vm in Fyre
 - Expanded the disk up to 1000G
