@@ -13,11 +13,11 @@ vda           252:0    0  1000G  0 disk
   └─rhel-swap 253:1    0    16G  0 lvm  [SWAP]
 ```
 
-- No need to partition the disk, it turns out
+- It turns out that there is no need to partition the disk
 - Copied the following files in the vm (using sftp):
-    - registry_creation.sh
+    - [registry_creation script](./registry_creation.sh)
     - pull-secret
-    - openshift-client tar file
+    - [openshift-client tar file](https://console.redhat.com/openshift/downloads)
 ```
 [root@avregistry1 ~]# ls -alt
 total 72592
