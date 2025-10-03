@@ -1,6 +1,6 @@
 ## Mirror images to registry
 
-1. Create the MAS CLI container
+1. Create the MAS CLI container, mounting it on `/Images` and where the license file is located (hence there are two mounts)
 
 ```
 [root@avregistry1 ~]# podman run -it -v /Images:/mnt/registry -v ~:/mnt/home --name mascli --pull always quay.io/ibmmas/cli
@@ -40,15 +40,14 @@ OpenShift Cluster Management:
 AI Service (Standalone) Management:
   - mas aiservice-install to install a new AI Service instance
 
-[ibmmas/cli:15.6.1]mascli$
-```
-
-
-```
 [ibmmas/cli:15.6.1]mascli$ ls /mnt/home
 anaconda-ks.cfg  katello-ca-consumer-latest.noarch.rpm	openshift-client-linux-amd64-rhel8.tar.gz  pull-secret.dms  registry_creation.sh
 [ibmmas/cli:15.6.1]mascli$ ls /mnt/registry
 auth  certs  data  downloads
+```
+2. Run `mas mirror-images` command
+
+```
 [ibmmas/cli:15.6.1]mascli$ mas mirror-images
 IBM Maximo Application Suite Air Gap Image Mirror (v15.6.1)
 Powered by https://github.com/ibm-mas/ansible-devops/
@@ -182,10 +181,11 @@ Mirroring IBM Maximo Manage ... /mnt/registry/logs/mirror-20250926-040328-manage
 [SUCCESS] Selected Dependencies: /mnt/registry/logs/mirror-20250926-040328-dependencies.log
 [ibmmas/cli:15.6.1]mascli$
 ```
-Checking the registry:
+
+3. When done, check the registry:
 
 ```
-$ curl -u admin:avredhat -k https://avregistry1.fyre.ibm.com:5000/v2/_catalog | jq
+$ curl -u $name:$password -k https://avregistry1.fyre.ibm.com:5000/v2/_catalog | jq
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed

@@ -5,7 +5,6 @@
 
 ```
 [root@avregistry1 ~]# ./registry_creation.sh
-./registry_creation.sh: line 1: !/bin/bash: No such file or directory
 Updating Subscription Management repositories.
 Red Hat Enterprise Linux 8 for x86_64 - BaseOS (RPMs)                                                                 71 kB/s | 4.1 kB     00:00
 ...
@@ -59,4 +58,6 @@ CONTAINER ID  IMAGE                         COMMAND               CREATED       
         └── start_registry.sh
 ```
 
-/Images/data is where data the registry data will live.
+`/Images/data` is where the registry data will live.
+
+*Next: [Mirroring MAS Images](../MirrorImages/masmirrorimages.md)
