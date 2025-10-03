@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 registry_base=/Images
 registry=registry.fyre.ibm.com
 username=username

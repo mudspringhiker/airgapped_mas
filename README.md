@@ -5,7 +5,7 @@ This is a record of what I've done to learn how to install MAS in an airgapped e
 ## Image Registry
 
 1. [Setup/VM creation](ImageRegistry/imageregistrysetup.md)
-2. [Deployment0](ImageRegistry/deployingregistry.md)
+2. [Deployment](ImageRegistry/deployingregistry.md)
 
 ## Mirroring Images
 

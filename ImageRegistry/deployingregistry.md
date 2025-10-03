@@ -1,7 +1,7 @@
 ## Deploying the registry
 
-- Run registry_creation.sh
-- Check the container using podman ps
+- Run [registry_creation](./registry_creation.sh) script
+- Check the container using `podman ps`
 
 ```
 [root@avregistry1 ~]# ./registry_creation.sh
