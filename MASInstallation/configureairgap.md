@@ -70,25 +70,6 @@ Review Settings
 Proceed with these settings [y/N]
 ```
 
-
-````
-          kind: MachineConfig
-          name: 99-master-generated-registries
-        - apiVersion: machineconfiguration.openshift.io/v1
-          kind: MachineConfig
-          name: 99-master-ssh
-      degradedMachineCount: 0
-      machineCount: 3
-      observedGeneration: 5
-      readyMachineCount: 3
-      unavailableMachineCount: 0
-      updatedMachineCount: 3
-
-PLAY RECAP *************************************************************************************************************************************************************************************************
-localhost                  : ok=27   changed=5    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
-
-[ibmmas/cli:15.6.1]mascli$
-```
 5. Check for newly created MachineConfigs
 
 ![](./machineconfigs.png)
@@ -96,7 +77,7 @@ localhost                  : ok=27   changed=5    unreachable=0    failed=0    s
 Choosing the worker machineconfig, search for registries.conf and copy the encoded source.
 Decode it
 
-`echo "encoded source" | base64 -d 
+`echo "encoded source" | base64 -d`
 
 Result for mine:
 
@@ -809,3 +790,8 @@ short-name-mode = ""
     location = "svlquay.svl.ibm.com/devit/openshift-release-dev/ocp-v4.0-art-dev"
     pull-from-mirror = "tag-only"
 ```
+
+*__Next: [Simulate Airgap](./simulateairgap.md)__*
+
+
+*__Back to [README](../README.md)__*

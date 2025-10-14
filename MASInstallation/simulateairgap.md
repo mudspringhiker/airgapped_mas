@@ -30,3 +30,5 @@ get the source, encoded, for the etc file:
 
 Then mas installation can be done.
 
+
+*__Back to [README](../README.md)__*

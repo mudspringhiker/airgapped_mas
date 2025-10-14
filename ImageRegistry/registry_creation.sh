@@ -1,3 +1,11 @@
+# Created by: John Mertic
+# Date: 2021-08-10
+# Description: This script will create a local image registry on your system using podman.
+# It will create a self-signed certificate, create a username and password for authentication,
+# and open the necessary firewall ports.
+# It will also install the necessary dependencies if they are not already installed.
+# You can modify the username and password variables to set your own credentials.
+# Notes above were AI generated.
 #!/bin/bash
 registry_base=/Images
 registry=registry.fyre.ibm.com

@@ -39,4 +39,6 @@ drwx------.  2 root root       85 Sep 15 11:37 .ssh
 -rw-r--r--.  1 root root      129 Aug 12  2018 .tcshrc
 ```
 
-Next: [Deploying the registry](./deployingregistry.md)
+*__Next: [Deploying the registry](./deployingregistry.md)__*
+
+*__Back to [README](../README.md)__*

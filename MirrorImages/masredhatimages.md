@@ -105,3 +105,5 @@ Mirroring Red Hat Content ... /mnt/registry/logs/mirror-20250926-120949-redhat.l
 ....
 [SUCCESS] Red Hat Content: /mnt/registry/logs/mirror-20250926-120949-redhat.log
 ```
+*__Next: Configure OCP cluster for airgap__*
+*__Back to [README](../README.md)
