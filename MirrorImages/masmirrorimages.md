@@ -296,4 +296,6 @@ $ curl -u $name:$password -k https://avregistry1.fyre.ibm.com:5000/v2/_catalog |
 }
 ```
 
-*Next: [Mirroring Red Hat images](./masredhatimages.md)*
+*__Next: [Mirroring Red Hat images](./masredhatimages.md)__*
+
+*__Back to [README](../README.md)__*

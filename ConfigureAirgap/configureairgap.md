@@ -3,20 +3,23 @@
 Pointing the cluster to the registry
 
 1. Provision the OCP on Fyre 
-- chose 4.16.47
+- chose 4.17.39
 
 2. Add the storageclasses
-- using rook ceph => resorted to a situation where it is trying to pull an image from quay.io/ceph, which isn't mirrored
+- using rook ceph => resulted to a situation where it is trying to pull an image from quay.io/ceph, which isn't mirrored
 or
 - run `mas provision-fyre` to install nfs storage
 
+Patch:
+`oc patch storageclass rook-ceph-block -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'`
+
 3. Check for any image content source policy and delete if there is one.
 
-4. oc image mirror --dir $LOCAL_DIR/cli quay.io/ibmmas/cli:15.6.1 file://ibmmas/cli:15.6.1
+4. oc image mirror --dir $LOCAL_DIR/cli quay.io/ibmmas/cli:15.6.1 file://ibmmas/cli:15.6.1 --filter-by-os='.*'
 Transfer the content of $LOCAL_DIR/cli to your system within the private network and transfer the image to your mirror registry.
 
 docker login $REGISTRY_HOST:$REGISTRY_PORT -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
-oc image mirror --dir $LOCAL_DIR/cli file://ibmmas/cli:15.6.1 $REGISTRY_HOST:$REGISTRY_PORT/ibmmas/cli:15.6.1
+oc image mirror --dir $LOCAL_DIR/cli file://ibmmas/cli:15.6.1 $REGISTRY_HOST:$REGISTRY_PORT/ibmmas/cli:15.6.1 --filter-by-os='.*'
 
 5. Run `mas configure-airgap`
 
@@ -792,6 +795,5 @@ short-name-mode = ""
 ```
 
 *__Next: [Simulate Airgap](./simulateairgap.md)__*
-
 
 *__Back to [README](../README.md)__*
